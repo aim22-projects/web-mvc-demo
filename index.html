@@ -23,14 +23,15 @@
         <div class="mdl-layout__drawer">
             <span style="min-height: 56px;"></span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" id="link_inbox"> Inbox </a>
-                <a class="mdl-navigation__link" id="link_saved"> Saved </a>
-                <a class="mdl-navigation__link" id="link_settings"> Settings </a>
-                <a class="mdl-navigation__link" id="link_account"> Account </a>
+                <a class="mdl-navigation__link" id="inbox_link" href="src/inbox/index.html" target="page_view"> Inbox </a>
+                <a class="mdl-navigation__link" id="saved_link"href="src/saved/index.html" target="page_view"> Saved </a>
+                <a class="mdl-navigation__link" id="settings_link"href="src/settings/index.html" target="page_view"> Settings </a>
+                <a class="mdl-navigation__link" id="account_link"href="src/account/index.html" target="page_view"> Account </a>
             </nav>
         </div>
         <main class="mdl-layout__content">
-            <div class="page-content" id="page_view">
+            <div class="page-content" >
+                <iframe src="src/inbox/index.html" frameborder="0" name="page_view"></iframe>
             </div>
         </main>
     </div>
