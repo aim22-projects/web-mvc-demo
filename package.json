@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/aim22-projects/web-mvc-demo/issues"
   },
-  "homepage": "https://github.com/aim22-projects/web-mvc-demo#readme"
+  "homepage": "https://github.com/aim22-projects/web-mvc-demo#readme",
+  "dependencies": {
+    "material-design-lite": "^1.3.0"
+  }
 }
