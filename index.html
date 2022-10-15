@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>MVC demo</title>
+		<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="/node_modules/material-design-lite/material.min.css" />
+		<script src="/node_modules/material-design-lite/material.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer type="module"></script>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC demo</title>
-    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
-    <script src="/node_modules/material-design-lite/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer type="module"></script>
-</head>
-
-<body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title"> MVC Demo </span>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span style="min-height: 56px;"></span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" id="inbox_link" href="src/inbox/index.html" target="page_view"> Inbox </a>
-                <a class="mdl-navigation__link" id="saved_link"href="src/saved/index.html" target="page_view"> Saved </a>
-                <a class="mdl-navigation__link" id="settings_link"href="src/settings/index.html" target="page_view"> Settings </a>
-                <a class="mdl-navigation__link" id="account_link"href="src/account/index.html" target="page_view"> Account </a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content" >
-                <iframe src="src/inbox/index.html" frameborder="0" name="page_view"></iframe>
-            </div>
-        </main>
-    </div>
-</body>
-
+	<body>
+		<div
+			class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<img
+						src="./assets/favicon.ico"
+						alt="Loading"
+						height="40"
+						width="40" />
+					<span style="width: 20px"></span>
+					<span class="mdl-layout-title"> MVC Demo </span>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer">
+				<span style="min-height: 56px"></span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" id="inbox_link"> Inbox </a>
+					<a class="mdl-navigation__link" id="saved_link"> Saved </a>
+					<a class="mdl-navigation__link" id="settings_link"> Settings </a>
+					<a class="mdl-navigation__link" id="account_link"> Account </a>
+				</nav>
+			</div>
+			<main class="mdl-layout__content page-content" id="page_view"></main>
+		</div>
+	</body>
 </html>
