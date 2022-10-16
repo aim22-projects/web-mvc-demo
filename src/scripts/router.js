@@ -2,10 +2,10 @@
 class Router {
 	#root = null;
 	#routes = [];
-	constructor({ query, routes }) {
-		this.root = query;
-		this.routes = routes;
-		this.routeTo(location.hash);
+	constructor() {
+		// window.onhashchange = function () {
+		// 	location.reload()
+		// }
 	}
 	get root() {
 		return this.#root;
@@ -25,10 +25,16 @@ class Router {
 	}
 	async routeTo(path) {
 		const _templatePath = this.routes[path];
-		if(_templatePath === undefined) return;
+		if (_templatePath === undefined) return;
 		const response = await fetch(_templatePath);
 		const html = await response.text();
-		this.#root.innerHTML = html;
+		// this.#root.innerHTML = html;
+
+		var parser = new DOMParser();
+		var newDom = parser.parseFromString(html,'text/html');
+		this.#root.appendChild(newDom.documentElement)
+
+
 	}
 }
 export default Router;
