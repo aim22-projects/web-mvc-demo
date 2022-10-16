@@ -7,19 +7,21 @@ const Routes = {
 	'#account': 'src/account/index.html',
 }
 const Scripts = {
-	'#inbox' : './src/inbox/script.js'
+	'#inbox': './src/inbox/script.js'
 }
 
-const router = new Router();
-router.root = '#page_view';
-router.routes = Routes;
+const router = new Router('#page_view');
 
-window.onload = function (){
-	if(Routes[location.hash] == undefined) return;
-	router.routeTo(location.hash)
-	if(Scripts[location.hash] === undefined) return;
+window.onload = function () {
+	// load html of new route
+	if (Routes[location.hash] == undefined) return;
+	router.routeTo(Routes[location.hash])
+
+	// load script of new route
+	if (Scripts[location.hash] === undefined) return;
 	import(Scripts[location.hash]);
 }
-window.onhashchange = function(){
+
+window.onhashchange = function () {
 	location.reload(true);
 }

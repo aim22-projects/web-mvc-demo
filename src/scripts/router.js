@@ -1,23 +1,8 @@
 
 class Router {
 	#root = null;
-	#routes = [];
-	constructor() {
-		// window.onhashchange = function () {
-		// 	location.reload()
-		// }
-	}
-	get root() {
-		return this.#root;
-	}
-	set root(value) {
-		this.#root = document.querySelector(value);
-	}
-	get routes() {
-		return this.#routes;
-	}
-	set routes(values) {
-		this.#routes = values;
+	constructor(query) {
+		this.#root = document.querySelector(query);
 	}
 	async navigate(path) {
 		location.hash = path;
@@ -25,9 +10,8 @@ class Router {
 	}
 	async routeTo(path) {
 		try {
-			const _templatePath = this.routes[path];
-			if (_templatePath === undefined) return;
-			const response = await fetch(_templatePath);
+			if (this.#root === null) return;
+			const response = await fetch(path);
 			const html = await response.text();
 			this.#root.innerHTML = html;
 		} catch (exception) {
