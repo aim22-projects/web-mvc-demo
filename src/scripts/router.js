@@ -24,17 +24,15 @@ class Router {
 		location.reload();
 	}
 	async routeTo(path) {
-		const _templatePath = this.routes[path];
-		if (_templatePath === undefined) return;
-		const response = await fetch(_templatePath);
-		const html = await response.text();
-		// this.#root.innerHTML = html;
-
-		var parser = new DOMParser();
-		var newDom = parser.parseFromString(html,'text/html');
-		this.#root.appendChild(newDom.documentElement)
-
-
+		try {
+			const _templatePath = this.routes[path];
+			if (_templatePath === undefined) return;
+			const response = await fetch(_templatePath);
+			const html = await response.text();
+			this.#root.innerHTML = html;
+		} catch (exception) {
+			console.log(exception);
+		}
 	}
 }
 export default Router;

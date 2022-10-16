@@ -15,6 +15,7 @@ router.root = '#page_view';
 router.routes = Routes;
 
 window.onload = function (){
+	if(Routes[location.hash] == undefined) return;
 	router.routeTo(location.hash)
 	if(Scripts[location.hash] === undefined) return;
 	import(Scripts[location.hash]);
