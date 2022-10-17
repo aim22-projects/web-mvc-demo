@@ -1,10 +1,10 @@
 import Router from './src/scripts/router.js';
 
 const Routes = {
-	'#inbox': 'src/inbox/index.html',
-	'#saved': 'src/saved/index.html',
-	'#settings': 'src/settings/index.html',
-	'#account': 'src/account/index.html',
+	'#inbox': './src/inbox/index.html',
+	'#saved': './src/saved/index.html',
+	'#settings': './src/settings/index.html',
+	'#account': './src/account/index.html',
 }
 const Scripts = {
 	'#inbox': './src/inbox/script.js'
