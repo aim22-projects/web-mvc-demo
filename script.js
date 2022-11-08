@@ -1,27 +1,23 @@
-import Router from './src/scripts/router.js';
-
 const Routes = {
-	'#inbox': './src/inbox/index.html',
-	'#saved': './src/saved/index.html',
-	'#settings': './src/settings/index.html',
-	'#account': './src/account/index.html',
-}
-const Scripts = {
-	'#inbox': './src/inbox/script.js'
-}
+	'#inbox': './src/inbox.js',
+	'#saved': './src/saved.js',
+	'#settings': './src/settings.js',
+	'#account': './src/account.js',
+};
 
-const router = new Router('#page_view');
+const root = document.getElementById('page_view');
 
-window.onload = function () {
-	// load html of new route
-	if (Routes[location.hash] == undefined) return;
-	router.routeTo(Routes[location.hash])
+window.onload = async () => {
+	// return if route not found
+	if (!Routes[location.hash]) return;
+	// fetch data from page
+	const { template, inject } = await import(Routes[location.hash]);
+	// set html
+	root.innerHTML = template;
+	// inject callbacks
+	inject();
+};
 
-	// load script of new route
-	if (Scripts[location.hash] === undefined) return;
-	import(Scripts[location.hash]);
-}
-
-window.onhashchange = function () {
+window.onhashchange = () => {
 	location.reload(true);
-}
+};
